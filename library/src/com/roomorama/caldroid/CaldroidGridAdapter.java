@@ -222,7 +222,7 @@ public class CaldroidGridAdapter extends BaseAdapter {
 	 * @param cellView
 	 */
 	protected void customizeTextView(int position, TextView cellView) {
-		cellView.setTextColor(Color.BLACK);
+		cellView.setTextColor(Color.WHITE);
 
 		// Get dateTime of this cell
 		DateTime dateTime = this.datetimeList.get(position);
@@ -273,7 +273,7 @@ public class CaldroidGridAdapter extends BaseAdapter {
 		if (shouldResetDiabledView && shouldResetSelectedView) {
 			// Customize for today
 			if (dateTime.equals(getToday())) {
-				cellView.setBackgroundResource(R.drawable.red_border);
+				cellView.setBackgroundResource(R.drawable.ic_cal_today_xml);
 			} else {
 				cellView.setBackgroundResource(R.drawable.cell_bg);
 			}
