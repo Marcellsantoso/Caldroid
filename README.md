@@ -15,10 +15,14 @@ If you are using Caldroid in your app and keen to list it here, please open a ne
 
 Setup
 =====
-Just clone the repo and check out the CaldroidSample to see how the library works.
+
+**For Eclipse/ADT user**: just clone the repo and check out the CaldroidSample to see how the library works.
 
 To use in your project, reference the child library project as a library. If you see JAR mismatched error, replace your android-support-v4.jar to the jar inside Caldroid. Make sure you compile the project against Android 4.2 and above to allow nested fragment. See more at http://developer.android.com/about/versions/android-4.2.html#NestedFragments
 
+**For Android Studio user**: please refer to [this issue](https://github.com/roomorama/Caldroid/issues/110).
+
+**For Maven user**: Caldroid depends on [date4j](http://www.date4j.net/) library which is not available on Maven Central, so Caldroid won't be available on Maven Central as well. It might not work well for Maven.
 
 Features
 ========
@@ -110,6 +114,20 @@ caldroidFragment.setTextColorForDate(R.color.white, greenDate);
 ```
 
 You need to call ```refreshView()``` after above methods to update calendar appearance.
+
+## Display user events on Caldroid
+
+Caldroid is simply an UI library and it does *not* connect to user calendar database or fetch any user's events. If your app wants to display these events on Caldroid:
+
+- Your app needs to fetch events (from server or from user calendar database, depend on your app)
+
+- Design a drawable for the date with event. See more here for all types of drawable you can create: http://developer.android.com/guide/topics/resources/drawable-resource.html
+
+- Use above `setBackgroundResourceForDate` method to set the event drawable to correct date
+
+- Call `refreshView()` to update calendar appearance
+
+If you need to customize more for the cell, you can [supply your own cell design](https://github.com/roomorama/Caldroid#client-can-customize-look-and-feel-of-almost-all-views).
 
 ## Set min / max date
 
@@ -434,6 +452,11 @@ App uses Caldroid
 
 [Attendance Register (students)](https://play.google.com/store/apps/details?id=com.rudra.attendanceRegister)
 
+[Tweet Roulette](https://play.google.com/store/apps/details?id=com.andreapivetta.tweetbooster&hl=it)
+
+[eDiary](https://play.google.com/store/apps/details?id=it.dreamerspillow.ediary)
+
+[Moon Calendar](https://play.google.com/store/apps/details?id=fr.calendrierlunaire.android)
 
 [![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/roomorama/caldroid/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
 
